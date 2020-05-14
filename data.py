@@ -120,7 +120,7 @@ class parser:
         return (db.session.query(func.count(casos.id),casos.fecha).filter(casos.fecha == datetime.now()).all())
 
     def GuardarCaso(self,ciudad,estado,sexo):
-        me = casos(fecha=datetime.now(),ciudad=unidecode(ciudad).lower(),estado=estado,sexo=sexo)
+        me = casos(fecha=datetime.now(),ciudad=unidecode(ciudad).lower(),estado=estado,sexo=sexo.lower())
         db.session.add(me)
         db.session.commit()
 
